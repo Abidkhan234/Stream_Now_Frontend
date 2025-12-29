@@ -3,9 +3,7 @@ import WatchListSection from '@/components/custom-components/watchingSections/Wa
 const page = () => {
     return (
         <main className='flex flex-col gap-7 pt-16'>
-            <>
-                <WatchListSection />
-            </>
+            <WatchListSection />
         </main>
     )
 }

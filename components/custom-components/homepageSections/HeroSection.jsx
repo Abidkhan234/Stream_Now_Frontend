@@ -1,11 +1,25 @@
-import heroImage from "@/public/Home-page/ef0bfa9c4e95fbd463733e391e30020bba75bc80.png";
-import HeroLayout from "../../layout/HeroLayout";
+"use client";
 
-const HeroSection = () => {
+import { HeroLayout, HeroLayoutLoader } from "../../layout/HeroLayout";
+import useFetch from "@/hooks/useFetch";
+
+const HeroSection = ({ query_url = "", query_name = [] }) => {
+  const { data, isLoading } = useFetch({
+    query_key: query_name,
+    query_url,
+  });
+
   return (
-    <section>
-      <HeroLayout bgImage={heroImage} filmName={"Jurassic Park"} />
-    </section>
+    <div>
+      {isLoading ? (
+        <HeroLayoutLoader />
+      ) : (
+        <HeroLayout
+          bgImage={data?.new_trailer.thumbnail}
+          filmName={data?.new_trailer.title}
+        />
+      )}
+    </div>
   );
 };
 

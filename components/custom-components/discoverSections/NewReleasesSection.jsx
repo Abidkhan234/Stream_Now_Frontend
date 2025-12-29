@@ -1,12 +1,14 @@
-import React from "react";
 import SectionLayout from "../../layout/SectionLayout";
-import { cardData } from "@/constant/data";
 
-const NewReleasesSection = () => {
+const NewReleasesSection = ({ data = [], isLoading }) => {
   return (
-    <div>
-      <SectionLayout data={cardData} secTitle={"New Releases"} />
-    </div>
+    <section>
+      <SectionLayout
+        data={data}
+        secTitle={"New Releases"}
+        isLoading={isLoading}
+      />
+    </section>
   );
 };
 

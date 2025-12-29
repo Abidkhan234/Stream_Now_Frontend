@@ -4,6 +4,24 @@ import film from "@/public/Home-page/filled.svg";
 import alarm from "@/public/Home-page/Alarm.svg";
 import HeroDropDown from "../DropDown/HeroDropDown";
 import { options } from "@/constant/data";
+import { Skeleton } from "../ui/skeleton";
+import { Spinner } from "../ui/spinner";
+
+const HeroLayoutLoader = () => {
+  return (
+    <div className="min-h-[90vh] w-full flex justify-start relative items-end lg:px-25 md:px-15 min-[425px]:px-10 px-5 sm:py-16 py-8">
+      <div className="bg-[linear-gradient(0deg,rgba(0,0,0,0)_0%,#000000_81.73%)]  absolute top-0 left-0 right-0 w-full h-100 z-[-1]"></div>
+      <div className="w-full h-100 absolute bottom-0 left-0 right-0 bg-[linear-gradient(185deg,transparent_50%,black_80%)] z-[-1]"></div>
+      {/* <Spinner
+        className={`size-10 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]`}
+      /> */}
+      <div className="flex flex-col gap-4 h-full w-full max-w-125">
+        <Skeleton className={`w-80 h-10`} />
+        <Skeleton className={`w-100 h-20`} />
+      </div>
+    </div>
+  );
+};
 
 const HeroLayout = ({
   pageName = "",
@@ -14,8 +32,8 @@ const HeroLayout = ({
 }) => {
   return (
     <div className="min-h-[90vh] w-full flex justify-start relative items-end lg:px-25 md:px-15 min-[425px]:px-10 px-5 sm:py-16 py-8">
-      <div className="bg-[linear-gradient(0deg,rgba(0,0,0,0)_0%,#000000_81.73%)]  absolute top-0 left-0 right-0 w-full h-[400px] z-[-1]"></div>
-      <div className="w-full h-[400px] absolute bottom-0 left-0 right-0 bg-[linear-gradient(185deg,transparent_50%,black_80%)] z-[-1]"></div>
+      <div className="bg-[linear-gradient(0deg,rgba(0,0,0,0)_0%,#000000_81.73%)]  absolute top-0 left-0 right-0 w-full h-100 z-[-1]"></div>
+      <div className="w-full h-100 absolute bottom-0 left-0 right-0 bg-[linear-gradient(185deg,transparent_50%,black_80%)] z-[-1]"></div>
       <Image
         src={bgImage}
         className="-z-10 object-cover h-full w-full"
@@ -31,39 +49,39 @@ const HeroLayout = ({
           <HeroDropDown initialValue={"Genres"} options={options} />
         </div>
       )}
-      <div className="flex flex-col gap-4 h-full w-full max-w-[500px]">
+      <div className="flex flex-col gap-4 h-full w-full max-w-125">
         <h2 className="font-semibold min-[375px]:text-3xl text-2xl uppercase">
           {coming}
         </h2>
         <h1 className={`sm:text-6xl text-5xl font-bold capitalize`}>
-          {filmName.toLowerCase()}
+          {filmName?.toLowerCase()}
         </h1>
         <p className="font-medium text-sm text-justify min-[375px]:leading-6 leading-5">
           {description}
         </p>
         <div className="flex gap-5 gap-y-3 items-center flex-wrap">
           <Button
-            className={`flex items-center gap-3 !rounded-full sm:!px-4`}
+            className={`flex items-center gap-3 rounded-full! sm:px-4!`}
             size={"lg"}
           >
             <span>Watch Trailer</span>
             <Image
               src={film}
               width={"auto"}
-              className="size-[20px] object-cover"
+              className="size-5 object-cover"
               height={"auto"}
               alt="fill"
             />
           </Button>
           <Button
-            className={`flex items-center gap-3 bg-[#FFD400] text-black !rounded-full sm:!px-4`}
+            className={`flex items-center gap-3 bg-[#FFD400] text-black rounded-full! sm:px-4!`}
             size={"lg"}
           >
             <span>More info</span>
             <Image
               src={alarm}
               width={"auto"}
-              className="size-[20px] object-cover"
+              className="size-5 object-cover"
               height={"auto"}
               alt="fill"
             />
@@ -74,4 +92,4 @@ const HeroLayout = ({
   );
 };
 
-export default HeroLayout;
+export { HeroLayout, HeroLayoutLoader };

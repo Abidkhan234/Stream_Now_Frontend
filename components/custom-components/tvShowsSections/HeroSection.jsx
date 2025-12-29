@@ -1,5 +1,5 @@
 import heroImage from "@/public/TvShow-Page/98f337a933973607beab26e94ed20d52a576bcb5.png";
-import HeroLayout from "../../layout/HeroLayout";
+import { HeroLayout } from "../../layout/HeroLayout";
 
 const HeroSection = () => {
   return (

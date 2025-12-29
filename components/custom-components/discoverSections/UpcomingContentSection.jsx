@@ -1,11 +1,13 @@
-import React from "react";
 import SectionLayout from "../../layout/SectionLayout";
-import { cardData } from "@/constant/data";
 
-const UpcomingContentSection = () => {
+const UpcomingContentSection = ({ data = [], isLoading }) => {
   return (
-    <section className="pb-10">
-      <SectionLayout secTitle={"Upcoming Content"} data={cardData} />
+    <section className="">
+      <SectionLayout
+        secTitle={"Upcoming Content"}
+        data={data}
+        isLoading={isLoading}
+      />
     </section>
   );
 };

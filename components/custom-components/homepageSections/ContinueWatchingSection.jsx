@@ -1,12 +1,15 @@
-import React from "react";
 import SectionLayout from "../../layout/SectionLayout";
-import { cardData } from "@/constant/data";
 
-const ContinueWatchingSection = () => {
+const ContinueWatchingSection = ({ data = [], isLoading, emptyTitle }) => {
   return (
-    <section className="py-10">
-      <SectionLayout secTitle={"Continue watching"} data={cardData} />
-    </section>
+    <div className="py-10">
+      <SectionLayout
+        secTitle={"Continue watching"}
+        data={data}
+        isLoading={isLoading}
+        emptyTitle={emptyTitle}
+      />
+    </div>
   );
 };
 

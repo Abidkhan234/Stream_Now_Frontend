@@ -1,11 +1,14 @@
-import React from "react";
 import SectionLayout from "../../layout/SectionLayout";
-import { cardData } from "@/constant/data";
 
-const TrendingSection = () => {
+const TrendingSection = ({ data = [], isLoading, emptyTitle }) => {
   return (
     <div>
-      <SectionLayout data={cardData} secTitle={"Trending"} />
+      <SectionLayout
+        data={data}
+        secTitle={"Trending"}
+        isLoading={isLoading}
+        emptyTitle={emptyTitle}
+      />
     </div>
   );
 };

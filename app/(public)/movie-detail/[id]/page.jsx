@@ -12,8 +12,8 @@ import MovieSlider from "@/components/slider/MovieSlider";
 import Link from "next/link";
 
 const page = () => {
-  const { id: movieId } = useParams();
   const router = useRouter();
+  const { id: movieId } = useParams();
 
   return (
     <div className="w-full h-full flex items-center justify-center pt-23">
@@ -41,10 +41,7 @@ const page = () => {
             </Link>
           </div>
         </div>
-        <div
-          // lg:px-20 min-[425px]:px-10 px-5
-          className={`flex flex-col gap-4 py-5`}
-        >
+        <div className={`flex flex-col gap-4 py-5`}>
           <div className="flex flex-col gap-3 items-start">
             <h3 className="font-medium text-3xl">Overview</h3>
             <p className="text-sm leading-5.5 opacity-70">
